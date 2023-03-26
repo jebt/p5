@@ -1,4 +1,4 @@
-let particleBuffer
+let particleBuffer;
 let noiseMap;
 const particleBufferSize = 30;
 
@@ -55,7 +55,7 @@ class NoiseMap {
     this.y = map(noise(this.nextY),  0, 1, 0, height);
     this.nextX += 0.02;
     this.nextY += 0.02;
-    particleBuffer.push(new Particle(this.x, this.y))
+    particleBuffer.push(new Particle(this.x, this.y));
   }
 }
 
@@ -66,7 +66,7 @@ function setup() {
   particleBuffer = new CircularBuffer(particleBufferSize);
   noiseMap = new NoiseMap();
   noiseMap.step();
-  strokeWeight(2)
+  strokeWeight(2);
 }
 
 function draw() {
@@ -76,21 +76,21 @@ function draw() {
   redval = 0;
   greenval = 255;
   size = 30;
-  particles = particleBuffer.getItemsReverse()
+  particles = particleBuffer.getItemsReverse();
   for (let i = 0; i < particles.length; i++) {
     particle = particles[i];
     if (i === 0) {
-      strokeWeight(0)
-      fill(120, 120, 255)
+      strokeWeight(0);
+      fill(120, 120, 255);
       circle(particle.x, particle.y, size);
-      strokeWeight(2)
+      strokeWeight(2);
       continue;
     }
     alphaval -= 7;
     redval += 10;
     greenval -= 10;
     size -= 1;
-    fill(redval, greenval, 0, alphaval)
+    fill(redval, greenval, 0, alphaval);
     circle(particle.x, particle.y, size);
   }
 }
