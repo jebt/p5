@@ -43,16 +43,16 @@ class NoiseMap {
     this.nextX = 0;
     this.nextY = 90000;
     this.x = map(noise(this.nextX), 0, 0.2, 0, width);
-    this.y = map(noise(this.nextY),  0, 0.2, 0, height);
+    this.y = map(noise(this.nextY), 0, 0.2, 0, height);
     this.px = 0;
     this.py = 0;
   }
 
-   step() {
+  step() {
     this.px = this.x;
     this.py = this.y;
     this.x = map(noise(this.nextX), 0, 1, 0, width);
-    this.y = map(noise(this.nextY),  0, 1, 0, height);
+    this.y = map(noise(this.nextY), 0, 1, 0, height);
     this.nextX += 0.02;
     this.nextY += 0.02;
     particleBuffer.push(new Particle(this.x, this.y));
