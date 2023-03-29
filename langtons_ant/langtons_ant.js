@@ -1,5 +1,5 @@
-let cellSizeX = 15;
-let cellSizeY = 15;
+let cellSizeX = 10;
+let cellSizeY = 10;
 let deadHue = 240;
 let liveHue = 120;
 let antHue = 69;
@@ -26,7 +26,6 @@ function setup() {
   createCanvas(canvasWidth, canvasHeight);
   colorMode(HSB, 360);
   background(0);
-  strokeWeight(2);
   stroke(255);
   frameRate(240);
 
@@ -154,7 +153,7 @@ class Cell {
     }
     if (this.x === newAntX * this.xx && this.y === newAntY * this.yy) {
       stroke(315, 360, 360);
-      strokeWeight(6);
+      strokeWeight(3);
     }
     rect(this.x, this.y, this.xx, this.yy);
   }
